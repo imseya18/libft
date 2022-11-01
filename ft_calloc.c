@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 15:20:36 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/01 14:15:38 by mmorue           ###   ########.fr       */
+/*   Created: 2022/11/01 18:05:51 by mmorue            #+#    #+#             */
+/*   Updated: 2022/11/01 18:33:17 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	*calloc(size_t count, size_t size)
 {
-	int	i;
+	int		i;
+	char	*str;
 
 	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
+	str = malloc(count * size);
+	while (str[i] != '\0')
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i--;
+		str[i] = 0;
+		i++;
 	}
-	return (0);
 }
-//int main (void)
-//{
-//	char tab[] = "salut";
-//	printf("%s\n",ft_strrchr(tab, 's'));
-//	printf("%s\n",strrchr(tab, 's'));
-//	return(0);
-//}

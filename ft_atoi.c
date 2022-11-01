@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seya <seya@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/11 14:33:11 by mmorue            #+#    #+#             */
-/*   Updated: 2022/10/01 01:40:13 by seya             ###   ########.fr       */
+/*   Created: 2022/10/31 13:36:59 by mmorue            #+#    #+#             */
+/*   Updated: 2022/10/31 17:28:05 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	calcul(char *str, int i, int k)
+#include "libft.h"
+//#include <stdlib.h>
+//#include <stdio.h>
+
+int	calcul(const char *str, int i, int k)
 {	
 	int	res;
 
@@ -25,7 +29,7 @@ int	calcul(char *str, int i, int k)
 	return (res);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	k;
@@ -40,17 +44,20 @@ int	ft_atoi(char *str)
 	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-		{
-			i++;
 			k++;
-		}
 		if (str[i] == '+')
-		{
-			i++;
 			j++;
-		}
+		i++;
 	}
 	if (j > 1 || k > 1 || (k + j) > 1)
-		return(0);
+		return (0);
 	return (calcul(str, i, k));
 }
+
+//int main(void)
+//{
+//	char tab[] = "     2147483657";
+//
+//	printf("%d\n", ft_atoi(tab));
+//	printf("%d", atoi(tab));
+//}
