@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:20:36 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/01 14:15:38 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/02 14:23:40 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,9 @@ char	*ft_strrchr(const char *s, int c)
 		i++;
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return ((char *)&s[i]);
 		i--;
 	}
 	return (0);
 }
-//int main (void)
-//{
-//	char tab[] = "salut";
-//	printf("%s\n",ft_strrchr(tab, 's'));
-//	printf("%s\n",strrchr(tab, 's'));
-//	return(0);
-//}
