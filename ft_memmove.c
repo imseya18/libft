@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 15:29:49 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/03 15:09:50 by mmorue           ###   ########.fr       */
+/*   Created: 2022/11/03 12:20:26 by mmorue            #+#    #+#             */
+/*   Updated: 2022/11/03 13:34:15 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	char	*dest;
-	char	*sorc;
+	size_t		i;
+	char		*dest;
+	char		*sorc;
 
-	dest = dst;
+	dest = (char *)dst;
 	sorc = (char *)src;
-	i = 0;
-	if (dst == 0 && src == 0)
+	i = -1;
+	if (dst == 0 & src == 0)
 		return (dst);
-	while (i < n)
+	if (dest > sorc)
 	{
-		dest[i] = sorc[i];
-		i++;
+		while (len-- > 0)
+			dest[len] = sorc[len];
+	}
+	else
+	{
+		while (++i < len)
+			dest[i] = sorc[i];
 	}
 	return (dst);
 }

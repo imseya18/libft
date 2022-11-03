@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 15:29:49 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/03 15:09:50 by mmorue           ###   ########.fr       */
+/*   Created: 2022/11/03 13:54:53 by mmorue            #+#    #+#             */
+/*   Updated: 2022/11/03 14:32:17 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
-	char	*dest;
-	char	*sorc;
+	size_t			i;
+	unsigned char	*cast_s;
 
-	dest = dst;
-	sorc = (char *)src;
+	cast_s = (unsigned char *)s;
 	i = 0;
-	if (dst == 0 && src == 0)
-		return (dst);
 	while (i < n)
 	{
-		dest[i] = sorc[i];
+		if (cast_s[i] == (unsigned char)c)
+			return (&cast_s[i]);
 		i++;
 	}
-	return (dst);
+	return (0);
 }
