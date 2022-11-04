@@ -6,13 +6,13 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:51:40 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/02 13:34:06 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/04 13:45:01 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	compar(const char *haystack, const char *needle)
+static int	compar(const char *haystack, const char *needle)
 {
 	size_t	i;
 

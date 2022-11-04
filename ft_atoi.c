@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:36:59 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/02 17:07:10 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/04 13:45:30 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 //#include <stdlib.h>
 //#include <stdio.h>
 
-int	calcul(const char *str, int i, int k)
+static int	calcul(const char *str, int i, int k)
 {	
 	int	res;
 
