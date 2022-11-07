@@ -29,7 +29,9 @@ SOURCES =   ft_atoi.c \
 			ft_putnbr_fd.c \
 			ft_substr.c \
 			ft_strjoin.c \
-			ft_split.c
+			ft_split.c \
+			ft_strmapi.c \
+			ft_striteri.c
 
 OBJECTS = $(SOURCES:.c=.o)
 FLAGS = -Wall -Wextra -Werror
