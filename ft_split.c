@@ -6,12 +6,11 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:31:38 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/07 15:36:50 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/07 16:28:09 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static	void	*free_nb(char **tab)
 {
