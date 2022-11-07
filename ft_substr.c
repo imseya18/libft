@@ -6,13 +6,13 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:50:12 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/04 15:40:15 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/07 14:36:41 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	perfect_size(char const *s, unsigned int start, size_t len)
+static int	perfect_size(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	j;

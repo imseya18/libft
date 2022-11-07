@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:42:21 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/04 12:41:20 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/07 12:56:56 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putendl_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (s == 0)
+		return ;
 	while (s[i])
 		write(fd, &s[i++], 1);
 	write(fd, "\n", 1);

@@ -1,8 +1,30 @@
-#include <stdlib.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/04 16:31:38 by mmorue            #+#    #+#             */
+/*   Updated: 2022/11/07 15:36:50 by mmorue           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 #include <stdio.h>
 
-int	count_word(char *str)
+static	void	*free_nb(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
+	return (0);
+}
+
+static	int	count_word(char const *str, char c)
 {
 	int	i;
 	int	k;
@@ -13,76 +35,104 @@ int	count_word(char *str)
 	count = 0;
 	while (str[i])
 	{
-		if ((str[i] >= 33 && str[i] <= 126) && k == 1)
+		if (str[i] != c && k == 1)
 		{
 			count++;
 			k = 0;
 		}
-		else if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+		else if (str[i] == c)
 			k = 1;
 		i++;
 	}
 	return (count);
 }
 
-char	**ft_split(char *str)
-{	
-	char	**tab;
-	int		i;
-	int		size;
-	int		nb;
-	int		j;
+static char	**fill_tab(char **tab, char const *str, char c)
+{
+	int	i;
+	int	j;
+	int	nb;
 
 	i = 0;
-	tab = NULL;
-	nb = 0;
 	j = 0;
-	size = 0;
-	tab = malloc((count_word(str) + 1) * sizeof(str));
-	while (str[i])
-	{
-		if (str[i] >= 33 && str[i] <= 126)
-		{
-			while (str[i] >= 33 && str[i] <= 126)
-			{
-				size++;
-				i++;
-			}
-			tab[nb] = malloc((size + 1) * sizeof(char));
-			nb++;
-			size = 0;
-		}
-		i++;
-	}
 	nb = 0;
-	i = 0;
 	while (str[i])
-	{
-		if (str[i] >= 33 && str[i] <= 126)
+	{	
+		if (str[i] != c && str[i] != '\0')
 		{
-			while (str[i] >= 33 && str[i] <= 126)
-			{
-				tab[nb][j] = str[i];
-				j++;
-				i++;
-			}
+			while (str[i] != c && str[i] != '\0')
+				tab[nb][j++] = str[i++];
 			tab[nb][j] = '\0';
 			nb++;
 			j = 0;
 		}
+		if (str[i])
 		i++;
 	}
 	tab[nb] = NULL;
 	return (tab);
 }
 
-int	main(void)
-{	
+static char	**size_tab(char **tab, char const *str, char c)
+{
 	int	i;
+	int	size;
+	int	nb;
 
 	i = 0;
-	char	tab[] = "salut les amis \n comment \n ca 	1 2 3	va \n 	oui	 et toi";
-	while (ft_split(tab)[i])
-	printf("%s\n",ft_split(tab)[i++]);
-	return (0);
+	nb = 0;
+	while (str[i])
+	{
+		if (str[i] != c && str[i] != '\0')
+		{
+			size = 0;
+			while (str[i] != c && str[i] != '\0')
+			{
+				size++;
+				i++;
+			}
+			tab[nb] = malloc((size + 1) * sizeof(char));
+			if (!tab[nb])
+				return (free_nb(tab));
+			nb++;
+		}
+		if (str[i])
+			i++;
+	}
+	return (tab);
 }
+
+char	**ft_split(char const *str, char c)
+{	
+	char	**tab;
+	int		i;
+	int		size;
+	int		nb;
+
+	i = 0;
+	nb = 0;
+	size = 0;
+	if (str == 0)
+		return (0);
+	tab = malloc((count_word(str, c) + 1) * sizeof(str));
+	if (!tab)
+		return (0);
+	if (size_tab(tab, str, c) == 0)
+		return (0);
+	return (fill_tab(tab, str, c));
+}
+
+//int	main(void)
+//{	
+//	int	i;
+//	char c;
+//
+//	c = ' ';
+//	i = 0;
+//	char	tab[] = " sa  ass a solol";
+//
+//	char	**balek = ft_split(tab, c);
+//	while (balek[i])
+//	printf("%s\n",balek[i++]);
+//	return (0);
+//}
