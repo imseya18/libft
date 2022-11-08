@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:36:59 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/07 14:38:22 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/08 17:24:53 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	calcul(const char *str, int i, int k)
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	if (k % 2 != 0)
+	if (k == 1)
 		res = -res;
 	return (res);
 }

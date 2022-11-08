@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:34:56 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/07 14:36:58 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/08 17:49:19 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	k;
 	size_t	j;
 
-	k = ft_strlen(dst);
 	i = 0;
+	if (src == 0 || dst == 0)
+		return (0);
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	k = ft_strlen(dst);
 	j = k;
 	if (dstsize <= j)
 		return (dstsize + ft_strlen(src));
