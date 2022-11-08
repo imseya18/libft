@@ -6,12 +6,11 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 17:40:53 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/08 19:26:24 by mmorue           ###   ########.fr       */
+/*   Updated: 2022/11/08 19:36:51 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	compar(char c, char const *set)
 {	
