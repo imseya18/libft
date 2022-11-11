@@ -33,10 +33,18 @@ SOURCES =   ft_atoi.c \
 			ft_strmapi.c \
 			ft_striteri.c \
 			ft_itoa.c \
-			ft_strtrim.c
+			ft_strtrim.c 
+
+SOURCE_BONUS = 	ft_lstnew.c \
+				ft_lstsize.c \
+				ft_lstadd_front.c 
 
 OBJECTS = $(SOURCES:.c=.o)
+
+OBJECTS_BONUS = $(SOURCE_BONUS:.c=.o)
+
 FLAGS = -Wall -Wextra -Werror
+
 CC = gcc $(FLAGS)
 
 all: $(NAME)
@@ -49,3 +57,7 @@ re: fclean $(NAME)
 
 $(NAME): $(SOURCES) $(OBJECTS)
 	ar rc $(NAME) $(OBJECTS)
+
+bonus: $(SOURCES) $(OBJECTS) $(SOURCES_BONUS) $(OBJECTS_BONUS)
+	ar rc $(NAME) $(OBJECTS) $(OBJECTS_BONUS)
+
